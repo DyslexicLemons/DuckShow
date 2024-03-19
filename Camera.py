@@ -14,7 +14,7 @@ def capture_camera_feed():
         ret, frame = cap.read()
 
         # Preprocess the frame
-        preprocessed_frame = preprocess_frame(frame)
+        # preprocessed_frame = preprocess_frame(frame)
 
         # Display the captured frame
         cv2.imshow('Camera Feed', preprocess_frame)
