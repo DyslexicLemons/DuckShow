@@ -42,13 +42,7 @@ def preprocess_frame(frame):
     frame = cv2.merge(lab_planes)
     frame = cv2.cvtColor(frame, cv2.COLOR_LAB2BGR)  # Convert back to BGR color space
 
-    # Contrast Enhancement
-    lab = cv2.cvtColor(frame, cv2.COLOR_BGR2LAB)
-    l, a, b = cv2.split(lab)
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-    l = clahe.apply(l)  # Apply CLAHE to the L channel
-    lab = cv2.merge((l, a, b))
-    frame = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
+
 
     # Resizing and Scaling
     frame = cv2.resize(frame, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
